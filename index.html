@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="menu">
+            <button id="menuFuncionario">Funcionario</button>
+            <button id="menuCidade">Cidade</button>
+            <button id="menuProfissao">Profissão</button>
+    </div>
+        
+        <!-- html funcionario-->
+        <div id="funcionario">
+            <form id="formFuncionario">
+                    <h1>Cadastro de Funcionario</h1>
+
+                <input type="hidden" id="idFuncionario">
+                <div>
+                    <label>Nome:</label>
+                    <input type="text" id="nome" required='required' placeholder="Digite o nome" data-custom-message="Digite o Nome!">
+                </div>
+                <div>
+                    <label>CPF:</label>
+                    <input type="text" id="cpf" required="required" placeholder="Digite o CPF" data-custom-message="Digite o CPF!">
+                </div>
+                <div>
+                    <label>Data Nascimento</label>
+                    <input type="text" id="dataNascimento" required="required" placeholder="Digite a data de Nascimento" data-custom-message="Digite a data de Nascimento!">
+                </div>
+                <div>
+                    <label>Data de Admissão</label>
+                    <input type="text" id="dataAdmissao" required="required" placeholder="Digite a data de Admissão" data-custom-message="Digite a data de Admissão!">
+                </div>
+                <div>
+                    <label>Telefone</label>
+                    <input type="text" id="telefone" required="required" placeholder="Digite seu telefone" data-custom-message="Digite seu Telefone!">
+                </div>
+                <div>
+                    <label>Ctps</label>
+                    <input type="text" id="ctps" required="required" placeholder="Digite o Ctps" data-custom-message="Digite o Ctps!">
+                </div>
+                <div>
+                    <label>Salário</label>
+                    <input type="text" id="salario" required="required" placeholder="Digite o salario" data-custom-message="Digite o Salário!">
+                </div>
+                <!-- <div class="form-group autocomplete">
+                    <label>Cidade:</label>
+                    <select class="" id="cidade" required="required">
+                    </select>
+                </div>
+                <div class="form-group autocomplete">
+                        <label>Profissão:</label>
+                        <select class="" id="profissao" required="required">
+                        </select>
+                    </div> -->
+                <div>
+                    <button type="submit">Salvar</button>
+                </div>
+                <div>
+                    <button id="mostraTabelaFuncionario">Mostrar Tabela</button>
+                </div>
+            </form>
+            <hr>
+            <div id="tabela-funcionario">
+                <table border="2">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Cpf</th>
+                        <th>Data Nascimento</th>
+                        <th>Data Admissão</th>
+                        <th>Telefone</th>
+                        <th>Ctps</th>
+                        <th>Salario</th>
+                        <th>Cidade</th>
+                        <th>Profissão</th>
+                        <th>Opcões</th>
+                    </thead>
+                    <tbody id="corpo-tabela-funcionario"></tbody>
+                </table>
+            </div>
+        </div>
+        <!-- html cidade-->
+        <div id="cidade">
+            <form id="formularioCidade">
+            <h1>Cadastro de Cidade</h1>
+            <input type="hidden" id="idCidade">
+            <div>
+                <label>Nome:</label>
+                <input type="text" id="nomeCidade" required="required" data-custom-message="Digite o nome da cidade"
+                    placeholder="Digite o nome da cidade">
+            </div>
+            <div>
+                <label>Estado:</label>
+                <input type="text" id="estado" required="required"  data-custom-message="Digite o nome do Estado" placeholder="Digite o Estado">
+            </div>
+            <div>
+                <label>Pais:</label>
+                <input type="text" id="pais" required="required"  data-custom-message="Digite o nome do Pais" placeholder="Digite o Pais">
+            </div>
+            <div>
+                <button type="submit">Salvar</button>
+            </div>
+            <div>
+                    <button id="mostraTabelaFormulario">Mostrar Tabela</button>
+            </div>
+        </form>
+        <hr>
+        <div id="tabela-formulario">
+            <table border="1">
+                <thead>
+                    <th>Nome</th>
+                    <th>Estado</th>
+                    <th>Pais</th>
+                    <th>Opcões</th>
+                </thead>
+                <tbody id="corpo-tabela"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- html profissao-->
+    <div id="profissao">
+        <form id="formularioProfissao">
+            <h1>Cadastro de Profissão</h1>
+            <input type="hidden" id="idProfissao">
+            <div>
+                <label>Código:</label>
+                <input type="number" id="codigo" required="required" data-custom-message ="Digite o código"
+                    placeholder="Digite o código">
+            </div>
+            <div>
+                <label>Nome:</label>
+                <input type="text" id="nomeProfissao" required="required" data-custom-message="Digite o nome da profissão"
+                    placeholder="Digite o nome da profissao">
+            </div>
+            <div>
+                <label>Data Cadastro:</label>
+                <input type="text" id="dataCadastro" required="required" data-custom-message="Digite a Data" placeholder="Digite a data">
+            </div>
+            <div>
+                <button type="submit">Salvar</button>
+            </div>
+            <div>
+                <button id="mostraTabelaProfisao">Mostrar Tabela</button>
+            </div>
+        </form>
+        <hr>
+        <div id="tabela-profissao">
+            <table border="1">
+                <thead>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Opcões</th>
+                </thead>
+                <tbody id="corpo-tabela-profissao"></tbody>
+            </table>
+        </div>
+    </div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
