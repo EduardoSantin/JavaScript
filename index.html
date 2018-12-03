@@ -89,9 +89,13 @@
             <h1>Cadastro de Cidade</h1>
             <input type="hidden" id="idCidade">
             <div>
-                <label>Nome:</label>
+                <label>Nome Cidade:</label>
                 <input type="text" id="nomeCidade" required="required" data-custom-message="Digite o nome da cidade"
                     placeholder="Digite o nome da cidade">
+            </div>
+            <div>
+                <label>CEP:</label>
+                <input type="text" id="cep" required="required" data-custom-message="Digite o cep da cidade" placeholder="Digite o Cep!">
             </div>
             <div>
                 <label>Estado:</label>
@@ -113,6 +117,7 @@
             <table border="1">
                 <thead>
                     <th>Nome</th>
+                    <th>Cep</th>
                     <th>Estado</th>
                     <th>Pais</th>
                     <th>Opcões</th>

@@ -162,16 +162,16 @@
     function gravaNoLocalStorageFuncionario(){
         const listaEmJSON = JSON.stringify(listaDeFuncionarios);
 
-        localStorage.setItem("lista", listaEmJSON);
+        localStorage.setItem("listaFuncionario", listaEmJSON);
     }
 
-    function buscaDoLocalStorage(){
-        const listaStorage = localStorage.getItem('lista');
+    function buscaDoLocalStorageFuncionario(){
+        const listaStorage = localStorage.getItem('listaFuncionario');
 
         listaDeFuncionarios = JSON.parse(listaStorage) || [];
     }
 
-    buscaDoLocalStorage();
+    buscaDoLocalStorageFuncionario();
     renderizaFuncionario();
 
     $("#formFuncionario").on("submit", function(evt){
@@ -214,6 +214,7 @@
         var cidade = {};
     
         cidade.nome = $("#nomeCidade").val();
+        cidade.cep = $("#cep").val();
         cidade.estado = $("#estado").val();
         cidade.pais = $("#pais").val();
     
@@ -229,6 +230,7 @@
             
             if(cidadeExistente){
                 cidadeExistente.nome = cidade.nome;
+                cidadeExistente.cep = cidade.cep;
                 cidadeExistente.estado = cidade.estado;
                 cidadeExistente.pais = cidade.pais;
             }
@@ -260,12 +262,12 @@
             // table data - dado da tabela
             // popular os td com o valor a ser mostrado
             let tdNome = $('<td>').text(cidade.nome);
-            let ldEstado = $('<td>').text(cidade.estado);
+            let tdCep = $('<td>').text(cidade.cep);
+            let tdEstado = $('<td>').text(cidade.estado);
             let tdpais = $('<td>').text(cidade.pais);
             let tdOpcoes = $('<td>');
     
             let btnEditar = $('<button>').text('Editar');
-    
             let btnExcluir = $('<button>').text('Excluir');
             
             // associa o click a uma function
@@ -285,7 +287,8 @@
             // adiciono os td dentro do tr
             // na order a ser exibida
             tr.append(tdNome)
-                .append(ldEstado)
+                .append(tdCep)
+                .append(tdEstado)
                 .append(tdpais)
                 .append(tdOpcoes);
     
@@ -298,15 +301,15 @@
        let cidade = findCidadeById(id);
     
         if(cidade){
-            $("#nomeCidade").val (cidade.nome);
-            $("#estado").val (cidade.estado);
-            $("#pais").val (cidade.pais);
-            $("#idCidade").val (cidade.id);
+            $("#nomeCidade").val(cidade.nome);
+            $("#cep").val(cidade.cep);
+            $("#estado").val(cidade.estado);
+            $("#pais").val(cidade.pais);
+            $("#idCidade").val(cidade.id);
         }else{
             alert('Não foi possível encontrar a cidade');
         }
     }
-    
     
     function excluirCidade(id){
         listaCidades = listaCidades
@@ -340,19 +343,19 @@
         const listaEmJSON = JSON.stringify(listaCidades);
     
         // gravando no localStorage
-        localStorage.setItem("lista", listaEmJSON);
+        localStorage.setItem("listaCidade", listaEmJSON);
     }
     
-    function buscaDoLocalStorage(){
+    function buscaDoLocalStorageCidade(){
         // busca do local storage
-        const listaStorage = localStorage.getItem("lista");
+        const listaStorage = localStorage.getItem("listaCidade");
     
         // converte para lista e atribui
         listaCidades = JSON.parse(listaStorage) || [];
     }
     
         // o que se deseja executar
-        buscaDoLocalStorage();
+        buscaDoLocalStorageCidade();
         renderizaCidade();
     
       $("#formularioCidade").on("submit", function(evt){
@@ -512,20 +515,20 @@
          const listaEmJSON = JSON.stringify(listaProfissoes);
         
         // gravando no localStorage
-         localStorage.setItem('lista', listaEmJSON);
+         localStorage.setItem('listaProfissao', listaEmJSON);
 
     }
 
-    function buscaDoLocalStorage() {
+    function buscaDoLocalStorageProfissao() {
             // busca do local storage
-         const listaStorage = localStorage.getItem("lista");
+         const listaStorage = localStorage.getItem("listaProfissao");
     
             // converte para lista e atribui
         listaProfissoes = JSON.parse(listaStorage) || [];
    
     }
 
-    buscaDoLocalStorage();
+    buscaDoLocalStorageProfissao();
     renderizaProfissao();
 
     $("#formularioProfissao").on("submit", function (evt) {
