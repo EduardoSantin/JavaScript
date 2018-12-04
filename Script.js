@@ -9,12 +9,7 @@
         $("#funcionario").show();
         $("#cidade").hide();
         $("#profissao").hide();
-        listaCidades.forEach(function(item){
-            $('#cidade-cbx').append('<option>' + item.nome + " - " +item.estado + '</option>');
-        })
-        listaProfissoes.forEach(function(item2){
-            $("#profissao-cbx").append("<option>" + item2.nomeProfissao + "</option>");
-        })
+        populaCombobox();
     })
     
     $("#menuCidade").click(function(){
@@ -72,6 +67,15 @@
 
         return false;
     }
+   
+    function populaCombobox(){
+        listaCidades.forEach(function(item){
+            $('#cidade-cbx').append('<option>' + item.nome + " - " +item.estado + '</option>');
+        })
+        listaProfissoes.forEach(function(item2){
+            $("#profissao-cbx").append("<option>" + item2.nomeProfissao + "</option>");
+        })
+    }
 
     function renderizaFuncionario(){
         const tbody = $("#corpo-tabela-funcionario");
@@ -124,6 +128,8 @@
     }
 
     function editarFuncionario(id){
+        $('#formFuncionario').show();
+        $('#cadastra-funcionario').text('Voltar a Tabela');
         let funcionario = findFuncionarioById(id);
         if(funcionario){
             $("#nome").val(funcionario.nome);
@@ -133,8 +139,8 @@
             $("#telefone").val(funcionario.telefone);
             $("#ctps").val(funcionario.ctps);
             $("#salario").val(funcionario.salario);
-            $("#cidade").val(funcionario.cidade);
-            $("#profissao").val(funcionario.profissao);
+            $("#cidade-cbx").val(funcionario.cidade);
+            $("#profissao-cbx").val(funcionario.profissao);
             $("#idFuncionario").val(funcionario.id);
         } else{
             alert("Não foi possivel encontrar o funcionario");
@@ -305,8 +311,9 @@
     }
     
     function editarCidade(id){
+        $('#formularioCidade').show();
+        $('#cadastrar-cidade').text('Voltar a Tabela');
        let cidade = findCidadeById(id);
-    
         if(cidade){
             $("#nomeCidade").val(cidade.nome);
             $("#cep").val(cidade.cep);
@@ -479,8 +486,9 @@
     }
 
     function editar(id){
+        $('#formularioProfissao').show();
+        $('#cadastra-profissao').text('Voltar a Tabela');
         let profissao = findProfissaoById(id);
-
         if(profissao){
             $("#codigo").val(profissao.codigo);
             $("#nomeProfissao").val(profissao.nomeProfissao);

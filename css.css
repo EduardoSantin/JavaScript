@@ -4,6 +4,11 @@ body{
 }
 #menu button{
     font-size: 20px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #ADD8E6;
 }
 
 #menu{
