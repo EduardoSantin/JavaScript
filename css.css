@@ -1,0 +1,23 @@
+body{
+	background-color: #eee;
+	margin: 0 auto;
+}
+#menu button{
+    font-size: 20px;
+}
+
+#menu{
+    position: fixed;
+    line-height: 400%;  
+    height: 100%;
+    width: 150px;
+    padding: 20px;
+    background-color: black;
+}
+
+#funcionario, #cidade, #profissao{
+    position: absolute;
+    line-height: 200%;
+    float: left;
+    margin-left: 220px;
+}

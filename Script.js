@@ -9,6 +9,12 @@
         $("#funcionario").show();
         $("#cidade").hide();
         $("#profissao").hide();
+        listaCidades.forEach(function(item){
+            $('#cidade-cbx').append('<option>' + item.nome + " - " +item.estado + '</option>');
+        })
+        listaProfissoes.forEach(function(item2){
+            $("#profissao-cbx").append("<option>" + item2.nomeProfissao + "</option>");
+        })
     })
     
     $("#menuCidade").click(function(){
@@ -36,8 +42,8 @@
         funcionario.telefone = $("#telefone").val();
         funcionario.ctps = $("#ctps").val();
         funcionario.salario = $("#salario").val();
-        funcionario.cidade = $("#cidade").val();
-        funcionario.profissao = $("#profissao").val();
+        funcionario.cidade = $("#cidade-cbx").val();
+        funcionario.profissao = $("#profissao-cbx").val();
 
         let id = $("#idFuncionario").val();
 
@@ -157,6 +163,7 @@
 
     function zerarInputsFuncionario(){
         $("#formFuncionario input").val('');
+        $("#formFuncionario select").val("");
     }
 
     function gravaNoLocalStorageFuncionario(){
@@ -195,16 +202,16 @@
         }
     });
 
-    $('#mostraTabelaFuncionario').click(function(){
-        if($('#mostraTabelaFuncionario').text() == 'Clique para esconder'){
-            $('#tabela-funcionario').hide();
-            $('#mostraTabelaFuncionario').text('Clique para mostrar');
+    $('#cadastra-funcionario').click(function(){
+        if($('#cadastra-funcionario').text() == 'Voltar a Tabela'){
+            $('#formFuncionario').hide();
+            $('#cadastra-funcionario').text('Cadastrar');
         } else{
-            $('#tabela-funcionario').show();
-            $('#mostraTabelaFuncionario').text('Clique para esconder');
+            $('#formFuncionario').show();
+            $('#cadastra-funcionario').text('Voltar a Tabela');
         }
     })
-    $('#tabela-funcionario').hide();
+    $('#formFuncionario').hide();
 
 
     //////////////////////////////////////CIDADE/////////////////////////////////////
@@ -385,16 +392,16 @@
             }
 
         });
-        $('#mostraTabelaFormulario').click(function(){
-            if($('#mostraTabelaFormulario').text() == 'Clique para esconder'){
-                $('#tabela-formulario').hide();
-                $('#mostraTabelaFormulario').text('Clique para mostrar');
+        $('#cadastrar-cidade').click(function(){
+            if($('#cadastrar-cidade').text() == 'Voltar a Tabela'){
+                $('#formularioCidade').hide();
+                $('#cadastrar-cidade').text('Cadastrar');
             } else{
-                $('#tabela-formulario').show();
-                $('#mostraTabelaFormulario').text('Clique para esconder');
+                $('#formularioCidade').show();
+                $('#cadastrar-cidade').text('Voltar a Tabela');
             }
         })
-        $('#tabela-formulario').hide();
+        $('#formularioCidade').hide();
 
     /////////////////////////////////////// PROFISSAO//////////////////////////////
     
@@ -556,14 +563,14 @@
             }
         }
     });
-    $('#mostraTabelaProfisao').click(function(){
-        if($('#mostraTabelaProfisao').text() == 'Clique para esconder'){
-            $('#tabela-profissao').hide();
-            $('#mostraTabelaProfisao').text('Clique para mostrar');
+    $('#cadastra-profissao').click(function(){
+        if($('#cadastra-profissao').text() == 'Voltar a Tabela'){
+            $('#formularioProfissao').hide();
+            $('#cadastra-profissao').text('Cadastrar');
         } else{
-            $('#tabela-profissao').show();
-            $('#mostraTabelaProfisao').text('Clique para esconder');
+            $('#formularioProfissao').show();
+            $('#cadastra-profissao').text('Voltar a Tabela');
         }
     })
-    $('#tabela-profissao').hide();
+    $('#formularioProfissao').hide();
 })();

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 <body>
     <div id="menu">
@@ -47,23 +48,25 @@
                     <label>Salário</label>
                     <input type="text" id="salario" required="required" placeholder="Digite o salario" data-custom-message="Digite o Salário!">
                 </div>
-                <!-- <div class="form-group autocomplete">
+                <div class="select-cidade">
                     <label>Cidade:</label>
-                    <select class="" id="cidade" required="required">
+                    <select id="cidade-cbx" required="required">
+                        <option value="" selected="selected" disabled="disabled">Selecione</option>
                     </select>
                 </div>
-                <div class="form-group autocomplete">
+                <div class="select-profissao">
                         <label>Profissão:</label>
-                        <select class="" id="profissao" required="required">
+                        <select id="profissao-cbx" required="required">
+                            <option value="" selected="selected" disabled="disabled">Selecione</option>
                         </select>
-                    </div> -->
+                </div>
                 <div>
                     <button type="submit">Salvar</button>
                 </div>
-                <div>
-                    <button id="mostraTabelaFuncionario">Mostrar Tabela</button>
-                </div>
             </form>
+                    <div>
+                        <button id="cadastra-funcionario">Cadastrar</button>
+                    </div>
             <hr>
             <div id="tabela-funcionario">
                 <table border="2">
@@ -108,10 +111,10 @@
             <div>
                 <button type="submit">Salvar</button>
             </div>
-            <div>
-                    <button id="mostraTabelaFormulario">Mostrar Tabela</button>
-            </div>
         </form>
+                <div>
+                        <button id="cadastrar-cidade">Cadastrar</button>
+                </div>
         <hr>
         <div id="tabela-formulario">
             <table border="1">
@@ -149,10 +152,10 @@
             <div>
                 <button type="submit">Salvar</button>
             </div>
-            <div>
-                <button id="mostraTabelaProfisao">Mostrar Tabela</button>
-            </div>
         </form>
+                <div>
+                    <button id="cadastra-profissao">Cadastrar</button>
+                </div>
         <hr>
         <div id="tabela-profissao">
             <table border="1">
