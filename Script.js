@@ -45,6 +45,7 @@
         if(id == undefined || id == ''){
             funcionario.id = new Date().getTime();
             listaDeFuncionarios.push(funcionario);
+            alert("Salvo com sucesso");
         } else{
             let idNumber = parseInt(id);
             let funcionarioExistente = findFuncionarioById(idNumber);
@@ -59,9 +60,11 @@
                 funcionarioExistente.salario = funcionario.salario;
                 funcionarioExistente.cidade = funcionario.cidade;
                 funcionarioExistente.profissao = funcionario.profissao;
+                alert("Editado com Sucesso");
             }
         }
         gravaNoLocalStorageFuncionario();
+        renderizaCidade();
         renderizaFuncionario();
         zerarInputsFuncionario();
 
@@ -69,9 +72,14 @@
     }
    
     function populaCombobox(){
+        $("option").remove();
+        
+        $("#cidade-cbx").append('<option value="" selected="selected" disabled="disabled">Selecione</option>');
         listaCidades.forEach(function(item){
             $('#cidade-cbx').append('<option>' + item.nome + " - " +item.estado + '</option>');
         })
+
+        $("#profissao-cbx").append('<option value="" selected="selected" disabled="disabled">Selecione</option>');
         listaProfissoes.forEach(function(item2){
             $("#profissao-cbx").append("<option>" + item2.nomeProfissao + "</option>");
         })
@@ -237,16 +245,17 @@
         if(id == undefined || id == ''){
             cidade.id = new Date().getTime();
             listaCidades.push(cidade);
+            alert("Salvo com Sucesso");
         } else { // se tenho id, estou editando
             let idNumber = parseInt(id);
             let cidadeExistente = findCidadeById(idNumber);
-            
             if(cidadeExistente){
                 cidadeExistente.nome = cidade.nome;
                 cidadeExistente.cep = cidade.cep;
                 cidadeExistente.estado = cidade.estado;
                 cidadeExistente.pais = cidade.pais;
-            }
+                alert("Editado com Sucesso");
+                }
         }
     
         gravaNoLocalStorageCidade();
@@ -287,7 +296,7 @@
             btnEditar.click(function(){ 
                 editarCidade(cidade.id)
             });
-    
+
             // associa o click a uma function// faz o mesmo 
             const fn_exc = function(){ 
                 excluirCidade(cidade.id)
@@ -309,7 +318,7 @@
             tbody.append(tr);
         }
     }
-    
+ 
     function editarCidade(id){
         $('#formularioCidade').show();
         $('#cadastrar-cidade').text('Voltar a Tabela');
@@ -426,7 +435,7 @@
         if(id == undefined || id == ''){
             profissao.id = new Date().getTime();
             listaProfissoes.push(profissao);
-
+            alert("Salvo com Sucesso");
         }else{
             let idNumber = parseInt(id);
             let profissaoExistente = findProfissaoById(idNumber);
@@ -435,6 +444,7 @@
                 profissaoExistente.codigo = profissao.codigo;
                 profissaoExistente.nomeProfissao = profissao.nomeProfissao;
                 profissaoExistente.dataCadastro = profissao.dataCadastro;
+                alert("Editado com sucesso");
             }
         }
 
